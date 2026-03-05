@@ -12,6 +12,13 @@ app.get("/api/health", (req, res) => {
 });
 app.use(cors());
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("OK");
+});
+
+app.get("/api/health", (req, res) => {
+  res.json({ ok: true });
+});
 app.post("/api/token", (req, res) => {
   const { userId } = req.body;
   if (!userId) return res.status(400).json({ error: "Missing userId" });
