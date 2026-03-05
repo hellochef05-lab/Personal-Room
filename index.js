@@ -7,6 +7,9 @@ import { Server } from "socket.io";
 dotenv.config();
 
 const app = express();
+app.get("/api/health", (req, res) => {
+  res.json({ ok: true });
+});
 app.use(cors());
 app.use(express.json());
 app.post("/api/token", (req, res) => {
